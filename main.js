@@ -17,7 +17,7 @@ function Book(title, author, numPages, readStatus) {
 }
 
 Book.prototype = {
-    info: function() {
+    updateReadStatus: function() {
     return `${this.title} by ${this.author}, ${this.numPages} pages, ${this.readStatus === 'yes' ? 'already read': 'not read yet'}`
     }
 }

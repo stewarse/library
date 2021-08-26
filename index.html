@@ -9,24 +9,29 @@
 </head>
 <body>
     <div id="book-input-wrapper">
-        <form action="submit">
+        <form action="submit"id="book-input-form">
+            <h2>Add New Book</h2>
             <label for="title">Title:</label>
             <input id="title" type="text" placeholder="Title" name="title">
             <label for="author">Author: </label>
-            <input type="text" id="author" placeholder="Author"> 
+            <input type="text" id="author" placeholder="Author">
             <label for="page-count">Number of Pages:</label>
             <input type="number" id="page-count" placeholder="Page Count">
-            <label for="read-status">Have you Read it?</label>
-            
-            <select name="Read" id="read-status">
-                <option hidden disabled selected value> -- </option>
-                <option value="yes" id="yes">Yes</option>
-                <option value="no" id="no">No</option>
-            </select><br>
-            <button type="button" id="submit">Submit Book</button>
-            <button type="button" id="cancel">Cancel</button>
+            <label for="read-status">Have you Read it?</label><input type="checkbox"     id="read-status">
+            <div id="button-wrapper">
+                <button type="button" id="submit">Submit Book</button>
+                <button type="button" id="cancel">Cancel</button>
+            </div>
+
         </form>
-    </div>
+
+            <!-- <div id="wrapper">
+                <div id="red"></div>
+                <div id="blue"></div>
+                <div id="green"></div>
+                <div id="yellow"></div>
+            </div>
+    </div> -->
     <script src="./main.js"></script>
 </body>
 </html>
