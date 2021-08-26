@@ -1,6 +1,11 @@
+const title = document.querySelector('#title')
+const author = document.querySelector('#author')
+const pageCount = document.querySelector('#page-count')
+const readStatus = document.querySelector("#read-status")
+const submit = document.querySelector('#submit')
+
+
 let myLibrary = []
-
-
 
 function Book(title, author, numPages, readStatus) {
     this.title = title
@@ -21,6 +26,17 @@ Book.prototype = {
 
 function addBookToLibrary() {
     //TODO: Write a function that adds a book (from user input) to myLibrary
+
+    let book = new Book(title.value, author.value, pageCount.value, readStatus.value)
+    myLibrary.push(book)
+    console.log(myLibrary)
+    clearDisplay()
+
+}
+function clearDisplay() {
+    title.value = author.value = pageCount.value = readStatus.value = ''
+}
+
     //BUG:
     //FIXME: 
 }

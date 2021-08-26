@@ -8,6 +8,25 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div id="book-input-wrapper">
+        <form action="submit">
+            <label for="title">Title:</label>
+            <input id="title" type="text" placeholder="Title" name="title">
+            <label for="author">Author: </label>
+            <input type="text" id="author" placeholder="Author"> 
+            <label for="page-count">Number of Pages:</label>
+            <input type="number" id="page-count" placeholder="Page Count">
+            <label for="read-status">Have you Read it?</label>
+            
+            <select name="Read" id="read-status">
+                <option hidden disabled selected value> -- </option>
+                <option value="yes" id="yes">Yes</option>
+                <option value="no" id="no">No</option>
+            </select><br>
+            <button type="button" id="submit">Submit Book</button>
+            <button type="button" id="cancel">Cancel</button>
+        </form>
+    </div>
     <script src="./main.js"></script>
 </body>
 </html>
