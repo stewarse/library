@@ -4,6 +4,7 @@ const pageCount = document.querySelector('#page-count')
 const readStatus = document.querySelector("#read-status")
 const submit = document.querySelector('#submit')
 
+submit.addEventListener('click', addBookToLibrary)
 
 let myLibrary = []
 
@@ -12,15 +13,12 @@ function Book(title, author, numPages, readStatus) {
     this.author = author
     this.numPages = numPages 
     this.readStatus = readStatus
-    // this.info = function() {
-    //     return `${this.title} by ${this.author}, ${this.numPages} pages, ${this.readStatus ? 'already read': 'not read yet'}`
-    // }
     //TODO: Look at this function to see if it contains all the info needed on the book
 }
 
 Book.prototype = {
     info: function() {
-    return `${this.title} by ${this.author}, ${this.numPages} pages, ${this.readStatus ? 'already read': 'not read yet'}`
+    return `${this.title} by ${this.author}, ${this.numPages} pages, ${this.readStatus === 'yes' ? 'already read': 'not read yet'}`
     }
 }
 
@@ -39,4 +37,10 @@ function clearDisplay() {
 
     //BUG:
     //FIXME: 
-}
+
+
+
+    let theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 310, 'yes' )
+    let harryPotterSorcerorStone = new Book("Harry Potter and the Sorceror's Stone", "J.K. Rowling", 223, 'yes')
+    myLibrary.push(theHobbit)
+    myLibrary.push(harryPotterSorcerorStone)
