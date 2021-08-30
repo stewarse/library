@@ -51,6 +51,27 @@ label {
   width: 100%;
 }
 
+/* 
+[ ] Need to finish the styling for books to have them display properly
+[ ] Need to update styling to pull add book form out of the page flow
+*/
+
+.book-display {
+  display: grid;
+  grid: auto-flow auto auto;
+}
+
+.books {
+  margin: 10px;
+  width: 20vw;
+  height: 15vh;
+  border: 2px solid black;
+}
+
+.books div {
+  padding: 10px;
+}
+
 /* #wrapper {
     display: grid;
     grid-template-rows: auto;
