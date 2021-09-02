@@ -4,8 +4,11 @@ const pageCount = document.querySelector('#page-count')
 const readStatus = document.querySelector("#read-status")
 const submit = document.querySelector('#submit')
 const display = document.querySelector('#book-display')
+const add = document.querySelector('#add-book')
+const bookForm = document.querySelector('#book-input-form')
 
 submit.addEventListener('click', addBookToLibrary)
+add.addEventListener('click', showAddBookForm)
 
 let myLibrary = []
 
@@ -38,11 +41,12 @@ function clearDisplay() {
     //[ ] : Add Button to bring up form to add in a new book
 
 function displayBooks() {
-    //[ ] : Write a function that loops through and displays books
+    //[x] : Write a function that loops through and displays books
+    //[ ] : Need to add a button that allows user to remove a book
     myLibrary.forEach((el) => {
         console.log(el)
         const book = document.createElement("div")
-        book.classList.add('books')
+        book.classList.add('book')
         const divTitle = document.createElement("div")
         const divAuthor = document.createElement("div")
         const divPages = document.createElement("div")
@@ -54,6 +58,10 @@ function displayBooks() {
         book.appendChild(divPages)
         display.appendChild(book)
     })
+}
+
+function showAddBookForm() {
+    bookForm.style.display = 'grid'
 }
 
 

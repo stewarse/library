@@ -6,7 +6,7 @@ body {
 
 form {
   position: absolute;
-  display: grid;
+  display: none;
   width: 400px;
   grid-template-rows: auto;
   grid-template-columns: 150px 250px;
@@ -66,15 +66,40 @@ label {
   /* grid: auto-flow 1fr 1fr auto; */
 }
 
-.books {
+.book {
   margin: 10px;
   width: 20vw;
   height: 15vh;
   border: 2px solid black;
 }
 
-.books div {
+.book div {
   padding: 10px;
+}
+
+button {
+  background-color: #04aa6d;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  /* padding: 20px;
+  display: inline-block; */
+  font-size: 16px;
+  margin: 4px 2px;
+}
+
+.book-buttons {
+  height: 50px;
+}
+
+#add-book {
+  position: absolute;
+  font-size: 32px;
+  padding: 20px;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
 }
 
 /* #wrapper {
