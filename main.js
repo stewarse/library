@@ -60,6 +60,7 @@ function displayBooks() {
 
     let theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 310, 'yes' )
     let harryPotterSorcerorStone = new Book("Harry Potter and the Sorceror's Stone", "J.K. Rowling", 223, 'yes')
+
     myLibrary.push(theHobbit, harryPotterSorcerorStone)
     
 displayBooks()

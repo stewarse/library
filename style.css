@@ -5,15 +5,18 @@ body {
 }
 
 form {
+  position: absolute;
   display: grid;
-  width: max-content;
+  width: 400px;
   grid-template-rows: auto;
   grid-template-columns: 150px 250px;
   grid-row-gap: 5px;
   border: 1px black solid;
   justify-items: start;
   padding: 10px;
-  margin: auto;
+  margin: -150px 0 0 -200px;
+  left: 50%;
+  top: 50%;
 }
 
 h2 {
@@ -53,12 +56,14 @@ label {
 
 /* 
 [ ] Need to finish the styling for books to have them display properly
-[ ] Need to update styling to pull add book form out of the page flow
+[x] Need to update styling to pull add book form out of the page flow
 */
 
-.book-display {
+#book-display {
   display: grid;
-  grid: auto-flow auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  /* grid: auto-flow 1fr 1fr auto; */
 }
 
 .books {
