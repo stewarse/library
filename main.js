@@ -10,7 +10,7 @@ const bookForm = document.querySelector('#book-input-form')
 
 submit.addEventListener('click', addBookToLibrary)
 add.addEventListener('click', showAddBookForm)
-document.addEventListener('click', deleteBook)
+display.addEventListener('click', deleteBook)
 
 let myLibrary = []
 
@@ -76,37 +76,27 @@ function showAddBookForm() {
 function deleteBook(e) {
 // [x] : Update to only run when target is = to the X <span> 
 // [x] : Need to associate each X to a specific book...Data Attribute? 
-// [ ] : Remove the book and all children from the display when clicked 
-// [ ] : Remove book from array
-console.log(e)
-    if(e.target.className === 'remove-book') {
-        const parent = e.target.parentElement
-        // console.log(e.target)
-        // console.log(parent)
-        while(parent.firstChild){
-            parent.removeChild(parent.firstChild)
-        }
-        parent.remove()
+// [x] : Remove the book and all children from the display when clicked 
+// [x] : Remove book from array
 
-        myLibrary[parent.dataset.id] = null
+    if(e.target.className !== 'remove-book') return;
+
+    let bookToRemove = e.target.closest('.book')
+    bookToRemove.remove();
+
+    myLibrary[bookToRemove.dataset.id] = null
     }
 
 }
 
-function getIndex(book = null) {
-    let index = myLibrary.indexOf(book)
+function getIndex() {
+    let index = myLibrary.indexOf(null)
 
-    if(book !== null){
-        return index = myLibrary.indexOf(book)
-    } 
-        
-    if(book === null) {
-    
-        if(index > -1) {
-            return index
-        }
-        return myLibrary.length
+    if(index > -1) {
+        return index
     }
+
+    return myLibrary.length
 }
 
 
