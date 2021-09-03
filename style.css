@@ -67,6 +67,7 @@ label {
 }
 
 .book {
+  position: relative;
   margin: 10px;
   width: 20vw;
   height: 15vh;
@@ -74,6 +75,7 @@ label {
 }
 
 .book div {
+  /* position: relative; */
   padding: 10px;
 }
 
@@ -100,6 +102,12 @@ button {
   bottom: 20px;
   right: 20px;
   border-radius: 50%;
+}
+
+.remove-book {
+  position: absolute;
+  display: block;
+  right: 5px;
 }
 
 /* #wrapper {

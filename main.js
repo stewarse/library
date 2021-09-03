@@ -6,9 +6,11 @@ const submit = document.querySelector('#submit')
 const display = document.querySelector('#book-display')
 const add = document.querySelector('#add-book')
 const bookForm = document.querySelector('#book-input-form')
+//const removeBook = document.querySelector('.remove-book')
 
 submit.addEventListener('click', addBookToLibrary)
 add.addEventListener('click', showAddBookForm)
+document.addEventListener('click', deleteBook)
 
 let myLibrary = []
 
@@ -17,7 +19,7 @@ function Book(title, author, numPages, readStatus) {
     this.author = author
     this.numPages = numPages 
     this.readStatus = readStatus
-    //TODO: Look at this function to see if it contains all the info needed on the book
+    //[ ] : Look at this function to see if it contains all the info needed on the book
 }
 
 Book.prototype = {
@@ -27,51 +29,93 @@ Book.prototype = {
 }
 
 function addBookToLibrary() {
-    //TODO: Write a function that adds a book (from user input) to myLibrary
+    //[x]: Write a function that adds a book (from user input) to myLibrary
 
     let book = new Book(title.value, author.value, pageCount.value, readStatus.value)
-    myLibrary.push(book)
-    console.log(myLibrary)
-    clearDisplay()
+    clearForm()
+    addBookToDisplay(book)
+    myLibrary[getIndex()] = book
 
 }
-function clearDisplay() {
+function clearForm() {
     title.value = author.value = pageCount.value = readStatus.value = ''
 }
-    //[ ] : Add Button to bring up form to add in a new book
+    //[X] : Add Button to bring up form to add in a new book
 
-function displayBooks() {
-    //[x] : Write a function that loops through and displays books
-    //[ ] : Need to add a button that allows user to remove a book
-    myLibrary.forEach((el) => {
-        console.log(el)
-        const book = document.createElement("div")
-        book.classList.add('book')
-        const divTitle = document.createElement("div")
-        const divAuthor = document.createElement("div")
-        const divPages = document.createElement("div")
-        divTitle.textContent = el.title
-        divAuthor.textContent = el.author
-        divPages.textContent = el.numPages + ' pages'
-        book.appendChild(divTitle)
-        book.appendChild(divAuthor)
-        book.appendChild(divPages)
-        display.appendChild(book)
-    })
+function addBookToDisplay(book) {
+    //[x] : Write a function that displays new books on the DOM 
+    //[x] : Need to add a button that allows user to remove a book
+        const bookDiv = document.createElement("div")
+        bookDiv.classList.add('book')
+        bookDiv.setAttribute('data-id', getIndex())
+
+        const titleDiv = document.createElement("div")
+        const authorDiv = document.createElement("div")
+        const pagesDiv = document.createElement("div")
+        const remove = document.createElement("span")
+
+        remove.classList.add("remove-book")
+
+        titleDiv.textContent = book.title
+        authorDiv.textContent = book.author
+        pagesDiv.textContent = book.numPages + ' pages'
+        remove.textContent = 'X'
+
+        bookDiv.appendChild(remove)
+        bookDiv.appendChild(titleDiv)
+        bookDiv.appendChild(authorDiv)
+        bookDiv.appendChild(pagesDiv)
+
+        display.appendChild(bookDiv)
 }
 
 function showAddBookForm() {
     bookForm.style.display = 'grid'
 }
 
+function deleteBook(e) {
+// [x] : Update to only run when target is = to the X <span> 
+// [x] : Need to associate each X to a specific book...Data Attribute? 
+// [ ] : Remove the book and all children from the display when clicked 
+// [ ] : Remove book from array
+console.log(e)
+    if(e.target.className === 'remove-book') {
+        const parent = e.target.parentElement
+        // console.log(e.target)
+        // console.log(parent)
+        while(parent.firstChild){
+            parent.removeChild(parent.firstChild)
+        }
+        parent.remove()
+
+        myLibrary[parent.dataset.id] = null
+    }
+
+}
+
+function getIndex(book = null) {
+    let index = myLibrary.indexOf(book)
+
+    if(book !== null){
+        return index = myLibrary.indexOf(book)
+    } 
+        
+    if(book === null) {
+    
+        if(index > -1) {
+            return index
+        }
+        return myLibrary.length
+    }
+}
 
 
     let theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 310, 'yes' )
     let harryPotterSorcerorStone = new Book("Harry Potter and the Sorceror's Stone", "J.K. Rowling", 223, 'yes')
 
-    myLibrary.push(theHobbit, harryPotterSorcerorStone)
+    myLibrary.push(theHobbit, null, harryPotterSorcerorStone)
     
-displayBooks()
+//addBookToDisplay()
 
     //BUG:
     //FIXME: 
