@@ -11,6 +11,7 @@ const bookForm = document.querySelector('#book-input-form')
 submit.addEventListener('click', addBookToLibrary)
 add.addEventListener('click', showAddBookForm)
 display.addEventListener('click', deleteBook)
+display.addEventListener('click', updateReadStatus)
 
 let myLibrary = []
 
@@ -19,12 +20,11 @@ function Book(title, author, numPages, readStatus) {
     this.author = author
     this.numPages = numPages 
     this.readStatus = readStatus
-    //[ ] : Look at this function to see if it contains all the info needed on the book
 }
 
 Book.prototype = {
-    updateReadStatus: function() {
-    return `${this.title} by ${this.author}, ${this.numPages} pages, ${this.readStatus === 'yes' ? 'already read': 'not read yet'}`
+    toggleReadStatus: function() {
+            this.readStatus === 'Read' ? this.readStatus = 'Not read' : this.readStatus = 'Read'
     }
 }
 
@@ -40,7 +40,7 @@ function addBookToLibrary() {
 function clearForm() {
     title.value = author.value = pageCount.value = readStatus.value = ''
 }
-    //[X] : Add Button to bring up form to add in a new book
+    //[x] : Add Button to bring up form to add in a new book
 
 function addBookToDisplay(book) {
     //[x] : Write a function that displays new books on the DOM 
@@ -52,19 +52,26 @@ function addBookToDisplay(book) {
         const titleDiv = document.createElement("div")
         const authorDiv = document.createElement("div")
         const pagesDiv = document.createElement("div")
-        const remove = document.createElement("span")
+        const remove = document.createElement("button")
+        const readStatusDiv = document.createElement("div")
+        const updateReadStatus = document.createElement("button")
 
         remove.classList.add("remove-book")
+        updateReadStatus.classList.add("update-read-status")
 
         titleDiv.textContent = book.title
         authorDiv.textContent = book.author
         pagesDiv.textContent = book.numPages + ' pages'
-        remove.textContent = 'X'
+        remove.textContent = '[X]'
+        readStatusDiv.textContent = book.readStatus
+        updateReadStatus.textContent = book.readStatus === 'not read' ? 'Mark as Read' : 'Mark as Not Read'
 
         bookDiv.appendChild(remove)
         bookDiv.appendChild(titleDiv)
         bookDiv.appendChild(authorDiv)
         bookDiv.appendChild(pagesDiv)
+        bookDiv.appendChild(readStatusDiv)
+        bookDiv.appendChild(updateReadStatus)
 
         display.appendChild(bookDiv)
 }
@@ -85,9 +92,22 @@ function deleteBook(e) {
     bookToRemove.remove();
 
     myLibrary[bookToRemove.dataset.id] = null
-    }
+}
+
+function updateReadStatus(e) {
+
+    if(e.target.className !== 'update-read-status') return;
+
+    let bookID = e.target.closest('.book').dataset.id
+    console.log(myLibrary[bookID])
+    myLibrary[bookID].toggleReadStatus()
+    console.log(e.target)
+
+    e.target.textContent = myLibrary[bookID].readStatus === 'Read' ? 'Mark as not read' : 'Mark as read'
 
 }
+
+
 
 function getIndex() {
     let index = myLibrary.indexOf(null)
@@ -100,12 +120,20 @@ function getIndex() {
 }
 
 
-    let theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 310, 'yes' )
-    let harryPotterSorcerorStone = new Book("Harry Potter and the Sorceror's Stone", "J.K. Rowling", 223, 'yes')
+    let theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 310, 'read' )
+    let harryPotterSorcerorStone = new Book("Harry Potter and the Sorceror's Stone", "J.K. Rowling", 223, 'read')
 
     myLibrary.push(theHobbit, null, harryPotterSorcerorStone)
     
 //addBookToDisplay()
 
-    //BUG:
-    //FIXME: 
+//[x] : Fix the readStatus to be Read or Not Read in the Object 
+//[x] : Update Form to allow selection of Read or Not Read with default of blank
+//[x] : Add Method to the object.prototype to toggle readStatus
+//[x] : Add Button to the UI to toggle status
+//[x] : Add eventListener to call prototype method when Read Status is called
+//[x] : Fix Number input to only accept positive numbers
+//[ ] : Update CSS to format book with new fields
+//[ ] : Add general html and CSS updates so that the app looks better {Title, background color, etc.}
+//[ ] : Add a modal that creates a blurred effect on the background when form is displayed
+//[ ] : Functionality for Cancel button

@@ -4,6 +4,11 @@ body {
   display: grid;
 }
 
+h1 {
+  height: min-content;
+  background-color: red;
+}
+
 form {
   position: absolute;
   display: none;
@@ -55,8 +60,9 @@ label {
 }
 
 /* 
-[ ] Need to finish the styling for books to have them display properly
-[x] Need to update styling to pull add book form out of the page flow
+//[ ] : Need to finish the styling for books to have them display properly
+//[ ] : Why is book display so far below H1?
+//[x] : Need to update styling to pull add book form out of the page flow
 */
 
 #book-display {
@@ -64,6 +70,7 @@ label {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   /* grid: auto-flow 1fr 1fr auto; */
+  background-color: purple;
 }
 
 .book {
@@ -107,6 +114,9 @@ button {
 .remove-book {
   position: absolute;
   display: block;
+  color: black;
+  background-color: white;
+  width: 25px;
   right: 5px;
 }
 

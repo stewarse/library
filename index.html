@@ -9,15 +9,22 @@
 </head>
 <body>
     <!-- <div id="book-input-wrapper"> -->
+        <h1>My Awesome Library</h1>
         <form action="submit"id="book-input-form">
             <h2>Add New Book</h2>
             <label for="title">Title:</label>
-            <input id="title" type="text" placeholder="Title" name="title">
+            <input id="title" type="text" placeholder="Title" name="title" required />
             <label for="author">Author: </label>
-            <input type="text" id="author" placeholder="Author">
+            <input type="text" id="author" placeholder="Author" required />
             <label for="page-count">Number of Pages:</label>
-            <input type="number" id="page-count" placeholder="Page Count">
-            <label for="read-status">Have you Read it?</label><input type="checkbox"     id="read-status">
+            <input type="number" id="page-count" min="0" required />
+            <label for="read-status">Have you Read it?</label>
+            <!--<input type="checkbox" id="read-status"> -->
+            <select name="read-status" id="read-status" required >
+                <option disabled selected hidden value=""></option>
+                <option value="Read">Yes</option>
+                <option value="Not read">No</option>
+            </select>
             <div id="button-wrapper">
                 <button type="button" id="submit" class="book-buttons">Submit Book</button>
                 <button type="button" id="cancel" class="book-buttons">Cancel</button>
@@ -28,7 +35,7 @@
         <div id="book-display">
         <!-- 
             <div class="book" data-id="">
-                <span class="remove-book">X</span>
+                <button class="remove-book">X</button>
                 <div>Title</div>
                 <div>Author</div>
                 <div>Number of Pages</div> 
