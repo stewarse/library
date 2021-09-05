@@ -7,12 +7,15 @@ const display = document.querySelector('#book-display')
 const add = document.querySelector('#add-book')
 const bookForm = document.querySelector('#book-input-form')
 const modal = document.querySelector('#modal-backdrop')
+const cancel = document.querySelector('#cancel')
 //const removeBook = document.querySelector('.remove-book')
 
 submit.addEventListener('click', addBookToLibrary)
 add.addEventListener('click', showAddBookForm)
 display.addEventListener('click', deleteBook)
 display.addEventListener('click', updateReadStatus)
+modal.addEventListener('click', closeForm)
+cancel.addEventListener('click', closeForm)
 
 let myLibrary = []
 
@@ -106,11 +109,7 @@ function updateReadStatus(e) {
     console.log(e.target)
 
     e.target.textContent = myLibrary[bookID].readStatus === 'Read' ? 'Mark as not read' : 'Mark as read'
-
-
-
 }
-
 
 
 function getIndex() {
@@ -121,6 +120,12 @@ function getIndex() {
     }
 
     return myLibrary.length
+}
+
+function closeForm() {
+    bookForm.style.display = 'none';
+    modal.style.display = 'none';
+    clearForm();
 }
 
 
@@ -140,6 +145,6 @@ function getIndex() {
 //[ ] : Update CSS to correctly format book with new fields
 //[ ] : Add general html and CSS updates so that the app looks better {Title, background color, etc.}
 //[x] : Add a modal that creates a blurred effect on the background when form is displayed
-//[ ] : Add Event Listener to hide form and modal when modal is clicked
-//[ ] : Functionality for Cancel button
+//[x] : Add Event Listener to hide form and modal when modal is clicked
+//[x] : Functionality for Cancel button
 //[ ] : Update Read Status text in DOM when status changes 
