@@ -1,12 +1,11 @@
-html,
-body {
+#wrapper {
   height: 100%;
   display: grid;
+  grid-template-rows: 58px auto;
 }
 
 h1 {
   height: min-content;
-  background-color: red;
 }
 
 form {
@@ -22,6 +21,8 @@ form {
   margin: -150px 0 0 -200px;
   left: 50%;
   top: 50%;
+  z-index: 2;
+  background-color: white;
 }
 
 h2 {
@@ -66,10 +67,10 @@ label {
 */
 
 #book-display {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
-  /* grid: auto-flow 1fr 1fr auto; */
   background-color: purple;
 }
 
@@ -92,8 +93,7 @@ button {
   color: white;
   text-align: center;
   text-decoration: none;
-  /* padding: 20px;
-  display: inline-block; */
+  /* padding: 20px;*/
   font-size: 16px;
   margin: 4px 2px;
 }
@@ -102,6 +102,7 @@ button {
   height: 50px;
 }
 
+/* [x] : Add Box Shadow on button */
 #add-book {
   position: absolute;
   font-size: 32px;
@@ -109,6 +110,7 @@ button {
   bottom: 20px;
   right: 20px;
   border-radius: 50%;
+  box-shadow: 5px 5px 15px rgb(0 0 0 / 0.4);
 }
 
 .remove-book {
@@ -118,6 +120,19 @@ button {
   background-color: white;
   width: 25px;
   right: 5px;
+}
+
+#modal-backdrop {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  background-color: grey;
+  opacity: 50%;
 }
 
 /* #wrapper {
