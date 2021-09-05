@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>My Awesome Library</h1> 
+    <div id="headline-block"></div> 
+    <h1>My Awesome Library</h1>
     <div id="wrapper">   
     
         <form action="submit"id="book-input-form">
@@ -34,14 +35,16 @@
         </form>
 
         <div id="book-display">
-        <!-- 
-            <div class="book" data-id="">
+        
+            <div class="book" data-id="0">
                 <button class="remove-book">X</button>
-                <div>Title</div>
-                <div>Author</div>
-                <div>Number of Pages</div> 
+                <h2>The Hobbit</h2>
+                <div>Author: J.R.R. Tolkien</div>
+                <div>Page Count: 310</div> 
+                <div id="read-status-0">Read</div>
+                <button class="update-read-status"> Mark as Not Read</button>
             </div>
-        -->
+       
         </div>
 
         <button id="add-book">+</button>

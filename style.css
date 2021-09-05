@@ -4,6 +4,17 @@
   grid-template-rows: 58px auto;
 }
 
+#headline-block {
+  position: fixed;
+  height: 80px;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  background-color: rgb(120, 197, 193);
+  z-index: -1;
+}
+
 h1 {
   height: min-content;
 }
@@ -61,30 +72,38 @@ label {
 }
 
 /* 
-//[ ] : Need to finish the styling for books to have them display properly
-//[ ] : Why is book display so far below H1?
+//[x] : Need to finish the styling for books to have them display properly
+//[x] : Why is book display so far below H1?
 //[x] : Need to update styling to pull add book form out of the page flow
 */
 
 #book-display {
-  position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  background-color: purple;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-rows: repeat(auto-fit, max-content);
+  margin: 20px 0px;
+  /* background-color: purple; */
 }
 
 .book {
   position: relative;
   margin: 10px;
-  width: 20vw;
-  height: 15vh;
+  padding: 10px;
+  width: 275px;
+  height: 160px;
   border: 2px solid black;
 }
 
 .book div {
   /* position: relative; */
   padding: 10px;
+}
+
+.book button {
+  position: absolute;
+  font-size: 12px;
+  bottom: 5px;
+  right: 10px;
 }
 
 button {
@@ -119,6 +138,7 @@ button {
   color: black;
   background-color: white;
   width: 25px;
+  top: 5px;
   right: 5px;
 }
 

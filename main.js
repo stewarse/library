@@ -28,7 +28,7 @@ function Book(title, author, numPages, readStatus) {
 
 Book.prototype = {
     toggleReadStatus: function() {
-            this.readStatus === 'Read' ? this.readStatus = 'Not read' : this.readStatus = 'Read'
+            this.readStatus === 'Read' ? this.readStatus = 'Not Read' : this.readStatus = 'Read'
     }
 }
 
@@ -49,33 +49,36 @@ function clearForm() {
 function addBookToDisplay(book) {
     //[x] : Write a function that displays new books on the DOM 
     //[x] : Need to add a button that allows user to remove a book
-        const bookDiv = document.createElement("div")
+    let index = getIndex();    
+    const bookDiv = document.createElement("div")
         bookDiv.classList.add('book')
-        bookDiv.setAttribute('data-id', getIndex())
+        bookDiv.setAttribute('data-id', index)
 
-        const titleDiv = document.createElement("div")
+        const titleH2 = document.createElement("h2")
         const authorDiv = document.createElement("div")
         const pagesDiv = document.createElement("div")
         const remove = document.createElement("button")
         const readStatusDiv = document.createElement("div")
-        const updateReadStatus = document.createElement("button")
+        const toggleReadStatusbtn = document.createElement("button")
+
+        readStatusDiv.setAttribute('id', `read-status-${index}`)
 
         remove.classList.add("remove-book")
-        updateReadStatus.classList.add("update-read-status")
+        toggleReadStatusbtn.classList.add("update-read-status")
 
-        titleDiv.textContent = book.title
-        authorDiv.textContent = book.author
-        pagesDiv.textContent = book.numPages + ' pages'
+        titleH2.textContent = book.title
+        authorDiv.textContent = `Author: ${book.author}`
+        pagesDiv.textContent = `Page Count: ${book.numPages}`
         remove.textContent = '[X]'
         readStatusDiv.textContent = book.readStatus
-        updateReadStatus.textContent = book.readStatus === 'not read' ? 'Mark as Read' : 'Mark as Not Read'
+        toggleReadStatusbtn.textContent = book.readStatus === 'not read' ? 'Mark as Read' : 'Mark as Not Read'
 
         bookDiv.appendChild(remove)
-        bookDiv.appendChild(titleDiv)
+        bookDiv.appendChild(titleH2)
         bookDiv.appendChild(authorDiv)
         bookDiv.appendChild(pagesDiv)
         bookDiv.appendChild(readStatusDiv)
-        bookDiv.appendChild(updateReadStatus)
+        bookDiv.appendChild(toggleReadStatusbtn)
 
         display.appendChild(bookDiv)
 }
@@ -103,12 +106,18 @@ function updateReadStatus(e) {
 
     if(e.target.className !== 'update-read-status') return;
 
-    let bookID = e.target.closest('.book').dataset.id
-    console.log(myLibrary[bookID])
-    myLibrary[bookID].toggleReadStatus()
+    let bookID = e.target.closest('.book').dataset.id;
+    let bookToUpdate = myLibrary[bookID];
+
+    console.log(bookToUpdate)
+    bookToUpdate.toggleReadStatus()
     console.log(e.target)
 
-    e.target.textContent = myLibrary[bookID].readStatus === 'Read' ? 'Mark as not read' : 'Mark as read'
+    e.target.textContent = bookToUpdate.readStatus === 'Read' ? 'Mark as not read' : 'Mark as read'
+
+    // let bookStatus = 
+    document.querySelector(`#read-status-${bookID}`).textContent = bookToUpdate.readStatus
+    // bookStatus.textContent = bookToUpdate.readStatus
 }
 
 
@@ -129,7 +138,7 @@ function closeForm() {
 }
 
 
-    let theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 310, 'read' )
+    let theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 310, 'Read' )
     let harryPotterSorcerorStone = new Book("Harry Potter and the Sorceror's Stone", "J.K. Rowling", 223, 'read')
 
     myLibrary.push(theHobbit, null, harryPotterSorcerorStone)
@@ -142,9 +151,9 @@ function closeForm() {
 //[x] : Add Button to the UI to toggle status
 //[x] : Add eventListener to call prototype method when Read Status is called
 //[x] : Fix Number input to only accept positive numbers
-//[ ] : Update CSS to correctly format book with new fields
+//[x] : Update CSS to correctly format book with new fields
 //[ ] : Add general html and CSS updates so that the app looks better {Title, background color, etc.}
 //[x] : Add a modal that creates a blurred effect on the background when form is displayed
 //[x] : Add Event Listener to hide form and modal when modal is clicked
 //[x] : Functionality for Cancel button
-//[ ] : Update Read Status text in DOM when status changes 
+//[x] : Update Read Status text in DOM when status changes 
