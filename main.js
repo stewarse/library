@@ -2,7 +2,6 @@ const title = document.querySelector('#title')
 const author = document.querySelector('#author')
 const pageCount = document.querySelector('#page-count')
 const readStatus = document.querySelector("#read-status")
-const submit = document.querySelector('#submit')
 const display = document.querySelector('#book-display')
 const add = document.querySelector('#add-book')
 const bookForm = document.querySelector('#book-input-form')
@@ -11,7 +10,6 @@ const cancel = document.querySelector('#cancel')
 const form = document.querySelector('form')
 
 form.addEventListener('submit', addBookToLibrary)
-// form.onsubmit()
 add.addEventListener('click', showAddBookForm)
 display.addEventListener('click', deleteBook)
 display.addEventListener('click', updateReadStatus)
@@ -161,4 +159,4 @@ function closeForm() {
 //[x] : Functionality for Cancel button
 //[x] : Update Read Status text in DOM when status changes 
 //[x] : Form is being submitted without all forms being submitted
-//[ ] : Need to figure out the Submit event so that it works properly in the library
+//[x] : Need to figure out the Submit event so that it works properly in the library
