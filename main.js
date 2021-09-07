@@ -137,12 +137,6 @@ function closeForm() {
     modal.style.display = 'none';
     clearForm();
 }
-
-
-    let theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 310, 'Read' )
-    let harryPotterSorcerorStone = new Book("Harry Potter and the Sorceror's Stone", "J.K. Rowling", 223, 'read')
-
-    myLibrary.push(theHobbit, null, harryPotterSorcerorStone)
     
 //addBookToDisplay()
 
