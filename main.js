@@ -8,7 +8,6 @@ const add = document.querySelector('#add-book')
 const bookForm = document.querySelector('#book-input-form')
 const modal = document.querySelector('#modal-backdrop')
 const cancel = document.querySelector('#cancel')
-//const removeBook = document.querySelector('.remove-book')
 
 submit.addEventListener('click', addBookToLibrary)
 add.addEventListener('click', showAddBookForm)
@@ -39,6 +38,7 @@ function addBookToLibrary() {
     clearForm()
     addBookToDisplay(book)
     myLibrary[getIndex()] = book
+    closeForm()
 
 }
 function clearForm() {
@@ -152,8 +152,9 @@ function closeForm() {
 //[x] : Add eventListener to call prototype method when Read Status is called
 //[x] : Fix Number input to only accept positive numbers
 //[x] : Update CSS to correctly format book with new fields
-//[ ] : Add general html and CSS updates so that the app looks better {Title, background color, etc.}
+//[x] : Add general html and CSS updates so that the app looks better {Title, background color, etc.}
 //[x] : Add a modal that creates a blurred effect on the background when form is displayed
 //[x] : Add Event Listener to hide form and modal when modal is clicked
 //[x] : Functionality for Cancel button
 //[x] : Update Read Status text in DOM when status changes 
+//[ ] : Form is being submitted without all forms being submitted

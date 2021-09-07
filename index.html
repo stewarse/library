@@ -17,18 +17,18 @@
             <label for="title">Title:</label>
             <input id="title" type="text" placeholder="Title" name="title" required />
             <label for="author">Author: </label>
-            <input type="text" id="author" placeholder="Author" required />
+            <input type="text" id="author" name="author" placeholder="Author" required />
             <label for="page-count">Number of Pages:</label>
-            <input type="number" id="page-count" min="0" required />
+            <input type="number" id="page-count" name ="page-count" min="0" required />
             <label for="read-status">Have you Read it?</label>
             <!--<input type="checkbox" id="read-status"> -->
-            <select name="read-status" id="read-status" required >
+            <select name="read-status" id="read-status" required />
                 <option disabled selected hidden value=""></option>
                 <option value="Read">Yes</option>
                 <option value="Not read">No</option>
             </select>
             <div id="button-wrapper">
-                <button type="button" id="submit" class="book-buttons">Submit Book</button>
+                <button type="submit" id="submit" class="book-buttons">Submit Book</button>
                 <button type="button" id="cancel" class="book-buttons">Cancel</button>
             </div>
 
