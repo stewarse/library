@@ -73,7 +73,7 @@ function addBookToDisplay(book) {
         authorDiv.textContent = `Author: ${book.author}`
         pagesDiv.textContent = `Page Count: ${book.numPages}`
         remove.textContent = '[X]'
-        readStatusDiv.textContent = book.readStatus
+        readStatusDiv.textContent = `Status: ${book.readStatus}`
         toggleReadStatusbtn.textContent = 'Change Status'
 
         bookDiv.appendChild(remove)
