@@ -9,7 +9,7 @@ const bookForm = document.querySelector('#book-input-form')
 const modal = document.querySelector('#modal-backdrop')
 const cancel = document.querySelector('#cancel')
 
-submit.addEventListener('click', addBookToLibrary)
+submit.addEventListener('submit', addBookToLibrary)
 add.addEventListener('click', showAddBookForm)
 display.addEventListener('click', deleteBook)
 display.addEventListener('click', updateReadStatus)
@@ -157,4 +157,5 @@ function closeForm() {
 //[x] : Add Event Listener to hide form and modal when modal is clicked
 //[x] : Functionality for Cancel button
 //[x] : Update Read Status text in DOM when status changes 
-//[ ] : Form is being submitted without all forms being submitted
+//[x] : Form is being submitted without all forms being submitted
+//[ ] : Need to figure out the Submit event so that it works properly in the library

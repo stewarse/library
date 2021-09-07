@@ -26,7 +26,7 @@ h1 {
 
 form {
   position: absolute;
-  display: block;
+  display: none;
   width: 400px;
   grid-template-rows: auto;
   grid-template-columns: 150px 250px;
