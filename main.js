@@ -8,8 +8,10 @@ const add = document.querySelector('#add-book')
 const bookForm = document.querySelector('#book-input-form')
 const modal = document.querySelector('#modal-backdrop')
 const cancel = document.querySelector('#cancel')
+const form = document.querySelector('form')
 
-submit.addEventListener('submit', addBookToLibrary)
+form.addEventListener('submit', addBookToLibrary)
+// form.onsubmit()
 add.addEventListener('click', showAddBookForm)
 display.addEventListener('click', deleteBook)
 display.addEventListener('click', updateReadStatus)
@@ -31,8 +33,9 @@ Book.prototype = {
     }
 }
 
-function addBookToLibrary() {
+function addBookToLibrary(e) {
     //[x]: Write a function that adds a book (from user input) to myLibrary
+    e.preventDefault()
 
     let book = new Book(title.value, author.value, pageCount.value, readStatus.value)
     clearForm()
