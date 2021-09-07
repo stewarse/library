@@ -9,7 +9,7 @@ body {
 }
 
 #headline-block {
-  position: fixed;
+  position: absolute;
   height: 80px;
   width: 100%;
   top: 0px;
@@ -79,7 +79,7 @@ label {
 
 #book-display {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(305px, 1fr));
   grid-template-rows: repeat(auto-fit, max-content);
   margin: 20px 0px;
 
@@ -131,9 +131,9 @@ button:not(.remove-book):hover {
 
 /* [x] : Add Box Shadow on button */
 #add-book {
-  position: absolute;
-  font-size: 32px;
-  padding: 20px;
+  position: fixed;
+  font-size: 2em;
+  padding: 0.5em;
   bottom: 20px;
   right: 20px;
   border-radius: 50%;
