@@ -71,7 +71,7 @@ function addBookToDisplay(book) {
         pagesDiv.textContent = `Page Count: ${book.numPages}`
         remove.textContent = '[X]'
         readStatusDiv.textContent = book.readStatus
-        toggleReadStatusbtn.textContent = book.readStatus === 'not read' ? 'Mark as Read' : 'Mark as Not Read'
+        toggleReadStatusbtn.textContent = 'Change Status'
 
         bookDiv.appendChild(remove)
         bookDiv.appendChild(titleH2)
@@ -113,10 +113,10 @@ function updateReadStatus(e) {
     bookToUpdate.toggleReadStatus()
     console.log(e.target)
 
-    e.target.textContent = bookToUpdate.readStatus === 'Read' ? 'Mark as not read' : 'Mark as read'
+
 
     // let bookStatus = 
-    document.querySelector(`#read-status-${bookID}`).textContent = bookToUpdate.readStatus
+    document.querySelector(`#read-status-${bookID}`).textContent = `Status: ${bookToUpdate.readStatus}`
     // bookStatus.textContent = bookToUpdate.readStatus
 }
 
