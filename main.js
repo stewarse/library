@@ -18,6 +18,7 @@ cancel.addEventListener('click', closeForm)
 
 let myLibrary = []
 
+/*
 function Book(title, author, numPages, readStatus) {
     this.title = title
     this.author = author
@@ -28,6 +29,21 @@ function Book(title, author, numPages, readStatus) {
 Book.prototype = {
     toggleReadStatus: function() {
             this.readStatus === 'Read' ? this.readStatus = 'Not Read' : this.readStatus = 'Read'
+    }
+}
+*/
+
+//Refactored code to use class per later lesson
+class Book {
+    constructor(title, author, numPages, readStatus) {
+        this.title = title;
+        this.author = author;
+        this.numPages = numPages;
+        this.readStatus = readStatus;
+    }
+
+    toggleReadStatus() { 
+        this.readStatus === 'Read' ? this.readStatus = 'Not Read' : this.readStatus = 'Read';
     }
 }
 
